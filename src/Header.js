@@ -17,14 +17,16 @@ function Header() {
     return (
         <Navbar className="border-bottom">
             <Container>
-                <Navbar.Brand href="https://github.com/dnd-mdn">dnd-mdn</Navbar.Brand>
+                
+                    <Navbar.Brand href="https://github.com/dnd-mdn">dnd-mdn</Navbar.Brand>
+              
                 <Nav>
                     <OverlayTrigger placement="bottom" overlay={<Tooltip>View project on GitHub</Tooltip>}>
                         <Nav.Link href={packageJson.repository.url.replace('.git', '')} target="_blank">
                             <MarkGithubIcon size={22} />
                         </Nav.Link>
                     </OverlayTrigger>
-                    <ThemeSwitcher size={22}/>
+                    <ThemeSwitcher size={22} />
                 </Nav>
             </Container>
         </Navbar>
