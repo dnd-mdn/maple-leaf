@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/maple-leaf/static/css/main.7efde049.css",
-    "main.js": "/maple-leaf/static/js/main.56f25fe2.js",
+    "main.js": "/maple-leaf/static/js/main.524fa1ad.js",
     "index.html": "/maple-leaf/index.html",
     "main.7efde049.css.map": "/maple-leaf/static/css/main.7efde049.css.map",
-    "main.56f25fe2.js.map": "/maple-leaf/static/js/main.56f25fe2.js.map"
+    "main.524fa1ad.js.map": "/maple-leaf/static/js/main.524fa1ad.js.map"
   },
   "entrypoints": [
     "static/css/main.7efde049.css",
-    "static/js/main.56f25fe2.js"
+    "static/js/main.524fa1ad.js"
   ]
 }
