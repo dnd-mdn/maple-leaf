@@ -2,7 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
-import ThemeSwitcher from './ThemeSwitcher.js';
+import ThemeSwitcher from './components/ThemeSwitcher.js';
 
 
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
@@ -17,9 +17,7 @@ function Header() {
     return (
         <Navbar className="border-bottom">
             <Container>
-                
-                    <Navbar.Brand href="https://github.com/dnd-mdn">dnd-mdn</Navbar.Brand>
-              
+                <Navbar.Brand href="https://github.com/dnd-mdn">dnd-mdn</Navbar.Brand>
                 <Nav>
                     <OverlayTrigger placement="bottom" overlay={<Tooltip>View project on GitHub</Tooltip>}>
                         <Nav.Link href={packageJson.repository.url.replace('.git', '')} target="_blank">
