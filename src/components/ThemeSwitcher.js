@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import useLocalStorageState from 'use-local-storage-state'
+import useLocalStorageState from 'use-local-storage-state';
 
 import { SunIcon, MoonIcon } from '@primer/octicons-react';
 import Nav from 'react-bootstrap/Nav';

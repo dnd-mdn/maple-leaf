@@ -1,0 +1,62 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "title": "Maple Leaf feed",
+    "description": "Article metadata for display in a datatable.",
+    "properties": {
+        "data": {
+            "type": "array",
+            "title": "Feed entries",
+            "description": "List of article details and metadata.",
+            "items": {
+                "type": "array",
+                "items": [
+                    {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "title": "Thumbnail",
+                        "description": "HTML image tag or null if not provided.",
+                        "pattern": "^<img2\\s+[^>]*>$"
+                    },
+                    {
+                        "type": "string",
+                        "title": "Title",
+                        "description": "HTML anchor tag with the article title.",
+                        "pattern": "^<a\\s+[^>]*href=[\"'][^\"']+[\"'][^>]*>(.*?)<\/a>$"
+                    },
+                    {
+                        "type": "string",
+                        "title": "Description",
+                        "description": "Article short description."
+                    },
+                    {
+                        "type": "string",
+                        "title": "Keywords",
+                        "description": "Comma-separated list of keywords."
+                    },
+                    {
+                        "type": "integer",
+                        "title": "Plublish date",
+                        "description": "Unix timestamp when the article was published."
+                    },
+                    {
+                        "type": "string",
+                        "format": "date",
+                        "title": "Display date",
+                        "description": "Human-readable date format."
+                    },
+                    {
+                        "type": "integer",
+                        "title": "Date timestamp",
+                        "description": "Unix timestamp of when the data was collected, used for updating the feed."
+                    }
+                ]
+            }
+        }
+    },
+    "required": [
+        "data"
+    ]
+}
