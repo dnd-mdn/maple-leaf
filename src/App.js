@@ -1,9 +1,8 @@
-
-import Header from './Header.js';
+import Header from './components/Header.js';
 import Container from 'react-bootstrap/Container';
-
 import packageJson from '../package.json';
-import Status from './Status.js';
+
+import Progress from './components/Progress.js';
 
 function App() {
     
@@ -13,7 +12,10 @@ function App() {
             <Container>
                 <h1 className="h3 mt-3">Maple Leaf tools <small className="text-body-secondary fs-6">v{packageJson.version}</small></h1>
                 <br />
-                <Status title="English feed" url="https://www.canada.ca/content/dam/dnd-mdn/documents/json/maple-en.json"/>
+               
+
+
+                <Progress complete={1} active={1} remain={4} message="Loading..." />
             </Container>
         </>
     );

@@ -1,13 +1,14 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
-    "title": "Maple Leaf feed",
-    "description": "Article metadata for display in a datatable.",
+    "title": "Article feed",
+    "description": "List of articles for display in a datatable.",
     "properties": {
         "data": {
             "type": "array",
-            "title": "Feed entries",
-            "description": "List of article details and metadata.",
+            "title": "Article list",
+            "description": "Array of article entries.",
+            "minItems": 1,
             "items": {
                 "type": "array",
                 "items": [
@@ -17,40 +18,40 @@
                             "null"
                         ],
                         "title": "Thumbnail",
-                        "description": "HTML image tag or null if not provided.",
+                        "description": "HTML <img> tag or null if not provided.",
                         "pattern": "^<img2\\s+[^>]*>$"
                     },
                     {
                         "type": "string",
                         "title": "Title",
-                        "description": "HTML anchor tag with the article title.",
+                        "description": "HTML <a> tag linking to the article.",
                         "pattern": "^<a\\s+[^>]*href=[\"'][^\"']+[\"'][^>]*>(.*?)<\/a>$"
                     },
                     {
                         "type": "string",
-                        "title": "Description",
-                        "description": "Article short description."
+                        "title": "Summary",
+                        "description": "A short description of the article."
                     },
                     {
                         "type": "string",
-                        "title": "Keywords",
-                        "description": "Comma-separated list of keywords."
+                        "title": "Tags",
+                        "description": "Comma-separated keywords related to the article."
                     },
                     {
                         "type": "integer",
-                        "title": "Plublish date",
-                        "description": "Unix timestamp when the article was published."
+                        "title": "Plublished",
+                        "description": "Unix timestamp representing the publication date."
                     },
                     {
                         "type": "string",
                         "format": "date",
                         "title": "Display date",
-                        "description": "Human-readable date format."
+                        "description": "Human-readable date."
                     },
                     {
                         "type": "integer",
-                        "title": "Date timestamp",
-                        "description": "Unix timestamp of when the data was collected, used for updating the feed."
+                        "title": "Updated",
+                        "description": "Unix timestamp representing the last update time."
                     }
                 ]
             }

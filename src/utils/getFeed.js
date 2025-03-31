@@ -15,13 +15,12 @@ const getFeed = async (url) => {
         throw new Error(`HTTP Error: ${response.statusText}`);
     }
 
-    // Validate the response data against the schema
+    // Schema validation
     const validate = new Ajv().compile(schema);
-    const valid = validate(response.data);
+    const isValid = validate(response.data);
 
-    if (!valid) {
-        console.error('Validation errors:', validate.errors);
-        throw new Error(`Validation failed ${url}`);
+    if (!isValid) {
+        throw new Error(`Failed schema validation`);
     }
 
     return response.data;

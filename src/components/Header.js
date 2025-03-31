@@ -1,17 +1,13 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-
-import ThemeSwitcher from './components/ThemeSwitcher.js';
-
-
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 
-
 import { MarkGithubIcon } from '@primer/octicons-react';
 
-import packageJson from '../package.json';
+import ThemeSwitcher from './ThemeSwitcher.js';
+import packageJson from '../../package.json';
 
 function Header() {
     return (
