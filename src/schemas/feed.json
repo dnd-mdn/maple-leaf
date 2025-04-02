@@ -18,13 +18,13 @@
                         ],
                         "title": "Thumbnail",
                         "description": "HTML <img> tag or null if not provided.",
-                        "pattern": "^<img2\\s+[^>]*>$"
+                        "pattern": "^<img\\s+[^>]*>$"
                     },
                     {
                         "type": "string",
                         "title": "Title",
                         "description": "HTML <a> tag linking to the article.",
-                        "pattern": "^<a\\s+[^>]*href=[\"'][^\"']+[\"'][^>]*>(.*?)<\/a>$"
+                        "pattern": "^<a\\s+[^>]*>(.*?)<\/a>$"
                     },
                     {
                         "type": "string",

@@ -1,13 +1,14 @@
 # maple-leaf
-Maple Leaf tools
+React application for generating Maple Leaf feed
 
 ## Development
 
-1. Clone the repository
-    `git clone <repository-url>`
+### Installation
+    git clone <repository-url>
+    npm install
 
-2. Install dependencies
-    `npm install`
+### Start dev server
+    npm start
 
-3. Start the development server
-    `npm start`
+### Deployment to GitHub pages
+    npm run deploy
