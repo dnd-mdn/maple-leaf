@@ -39,7 +39,7 @@
                     {
                         "type": "integer",
                         "title": "Plublished",
-                        "description": "Unix timestamp representing the publication date."
+                        "description": "Timestamp representing the publication date."
                     },
                     {
                         "type": "string",
@@ -50,7 +50,7 @@
                     {
                         "type": "integer",
                         "title": "Updated",
-                        "description": "Unix timestamp representing the last update time."
+                        "description": "Timestamp representing the last update time."
                     }
                 ]
             }

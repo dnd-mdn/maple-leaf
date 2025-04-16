@@ -1,6 +1,6 @@
 {
   "name": "maple-leaf",
-  "version": "2025.03.31",
+  "version": "2025.04.16",
   "private": true,
   "homepage": "https://dnd-mdn.github.io/maple-leaf",
   "repository": {
@@ -8,16 +8,16 @@
     "url": "https://github.com/dnd-mdn/maple-leaf.git"
   },
   "dependencies": {
-    "@primer/octicons-react": "^19.14.0",
+    "@primer/octicons-react": "^19.15.1",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "axios": "^1.7.9",
+    "axios": "^1.8.4",
     "axios-hooks": "^5.1.0",
-    "bootstrap": "^5.3.3",
-    "canada-api": "^3.0.4",
+    "bootstrap": "^5.3.5",
+    "canada-api": "^4.0.0",
     "react": "^18.3.1",
-    "react-bootstrap": "^2.10.6",
+    "react-bootstrap": "^2.10.9",
     "react-dom": "^18.3.1",
     "react-scripts": "^5.0.1",
     "timeago-react": "^3.0.6",
