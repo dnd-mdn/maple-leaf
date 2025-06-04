@@ -1,6 +1,13 @@
 import EventEmitter from "events";
 import axios from "axios";
 
+import Ajv from "ajv";
+import schema from "../schemas/feed.json";
+
+
+const isValid = new Ajv().compile(schema);
+
+
 const defaultConfig = {
 	en: {
 		root: '/en/department-national-defence/maple-leaf',
@@ -8,50 +15,87 @@ const defaultConfig = {
 	},
 	fr: {
 		root: '/fr/ministere-defense-nationale/feuille-derable',
-		live: '/content/dam/dnd-mdn/documents/json/maple-fr.json',
+		live: '/content/dam/dnd-mdn/documents/json/maple-fr.json2',
 	},
+	match: /\/\d{4}\/\d{2}\/[^/]+$/
 }
 
 class Feed extends EventEmitter {
 
-	constructor(config = defaultConfig) {
+	/**
+	 * Create a new Feed instance
+	 * @param {Object} config Configuration object
+	 * @param {Object} console Console object for logging
+	 */
+	constructor(config = defaultConfig, console) {
 		super();
 
 		this.config = config;
-		this.cache = {};
-		this._log = [];
+		this.isActive = false;
+
+		this._data = {};
+		this._warnings = [];
+
+		this.en = {data: []};
+		this.fr = {data: []};
 	}
 
-	async load() {
-		const promises = Object.entries(this.config).map(async ([lang, { current }]) => {
-			if (!this.cache[lang]) {
-				try {
-					const response = await axios.get(current, { timeout: 5000 });
-					this.cache[lang] = response.data;
-				} catch (error) {
-					console.error(`Error loading feed for ${lang}:`, error);
-					throw new Error(`Failed to load feed for ${lang}`);
-				}
-			}
-		});
+	async run() {
+		this.isActive = true;
+		this.#status('ℹ️ Starting feed generation\n');
 
-		await Promise.all(promises);
+		await this.#loadFeeds();
+		await this.validate();
 	}
 
 	/**
-	 * Log messages to an internal array of messages
-	 * @param {string} message - The message to log
-	 * @param {boolean} [overwrite=false] - If true, overwrite the last message instead of adding a new one
-	 * @private
+	 * Download all live feed data
 	 */
-	#log(message, overwrite = false) {
-		if (overwrite) {
-			this._log[this._log.length - 1] = message;
-		} else {
-			this._log.push(message);
+	async #loadFeeds() {
+		await this.#loadFeed('en')
+		await this.#loadFeed('fr')
+	}
+
+	/**
+	 * Download live feed data
+	 * @param {string} url The URL of the feed to get
+	 * @throws {Error} If the feed is unreachable or invalid
+	 * @returns {Object} The feed object
+	 */
+	async #loadFeed(lang) {
+		this.#status(`ℹ️ Downloading ${lang === 'en' ? 'English' : 'French'} feed...`);
+
+		const url = new URL(this.config[lang].live, 'https://www.canada.ca');
+		const response = await axios.get(url, { timeout: 10000 });
+	
+		if (response.status !== 200) {
+			throw new Error(`⛔ Error: ${response.statusText}`);
 		}
 
-		this.emit("progress", this._log);
+		this[lang] = response.data;
+		this.#status(`✅ Downloaded successfull\n`);
+	}
+
+	/**
+	 * Validate contents using the schema
+	 * @throws {Error} If it fails validation
+	 */
+	validate() {
+		this.#status('Validating feed contents...');
+
+		if (!isValid(this.en) || !isValid(this.fr)) {
+			throw new Error(`Validation failed`);
+		}
+
+		this.#status('Validation passed');
+	}
+
+	/**
+	 * Emit a status message
+	 * @param {string} message 
+	 */
+	#status(message) {
+		this.emit('status', `${message}`);
 	}
 
 }

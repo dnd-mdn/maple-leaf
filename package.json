@@ -1,6 +1,6 @@
 {
   "name": "maple-leaf",
-  "version": "2025.04.16",
+  "version": "2025.06.03",
   "private": true,
   "homepage": "https://dnd-mdn.github.io/maple-leaf",
   "repository": {
@@ -16,6 +16,7 @@
     "axios-hooks": "^5.1.0",
     "bootstrap": "^5.3.5",
     "canada-api": "^4.0.0",
+    "downloadjs": "^1.4.7",
     "react": "^19.1.0",
     "react-bootstrap": "^2.10.9",
     "react-dom": "^19.1.0",
@@ -50,9 +51,9 @@
     ]
   },
   "devDependencies": {
-    "react-scripts": "^5.0.1",
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "gh-pages": "^6.1.1"
+    "gh-pages": "^6.1.1",
+    "react-scripts": "^5.0.1"
   },
   "engines": {
     "npm": ">=8.3.0"
