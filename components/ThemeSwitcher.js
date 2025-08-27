@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import useLocalStorageState from 'use-local-storage-state';
 
 import Nav from 'react-bootstrap/Nav';
@@ -8,12 +8,18 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import { SunIcon, MoonIcon } from '@primer/octicons-react';
 
 function ThemeSwitcher({ className, size = 22 }) {
-    const preference = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    const [theme, setTheme] = useLocalStorageState('theme', null);
 
-    const [theme, setTheme] = useLocalStorageState('theme', { defaultValue: preference });
-    const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
+    useEffect(() => {
+        if (!theme) {
+            const preference = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+            setTheme(preference);
+        }
 
-    useEffect(() => document.documentElement.setAttribute('data-bs-theme', theme), [theme]);
+        document.documentElement.setAttribute('data-bs-theme', theme);
+    }, [theme, setTheme]);
+
+    const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light');
 
     return (
         <OverlayTrigger placement="bottom" overlay={<Tooltip>Switch theme</Tooltip>}>

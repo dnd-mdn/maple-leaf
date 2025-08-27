@@ -1,6 +1,6 @@
 {
   "name": "maple-leaf",
-  "version": "2025.06.03",
+  "version": "2025.08.27",
   "private": true,
   "homepage": "https://dnd-mdn.github.io/maple-leaf",
   "repository": {
@@ -9,28 +9,28 @@
   },
   "dependencies": {
     "@primer/octicons-react": "^19.15.1",
-    "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^16.3.0",
-    "@testing-library/user-event": "^14.6.1",
-    "axios": "^1.8.4",
+    "ajv": "^8.17.1",
+    "axios": "^1.11.0",
     "axios-hooks": "^5.1.0",
     "bootstrap": "^5.3.5",
     "canada-api": "^4.0.0",
     "downloadjs": "^1.4.7",
-    "react": "^19.1.0",
+    "next": "^15.5.2",
+    "react": "^19.1.1",
     "react-bootstrap": "^2.10.9",
-    "react-dom": "^19.1.0",
+    "react-data-table-component": "^7.7.0",
+    "react-dom": "^19.1.1",
+    "react-router-dom": "^7.7.1",
+    "styled-components": "^6.1.19",
     "timeago-react": "^3.0.6",
-    "use-local-storage-state": "^19.5.0",
-    "web-vitals": "^5.0.1"
+    "use-local-storage-state": "^19.5.0"
   },
   "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -38,28 +38,7 @@
       "react-app/jest"
     ]
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "gh-pages": "^6.1.1",
-    "react-scripts": "^5.0.1"
-  },
-  "engines": {
-    "npm": ">=8.3.0"
-  },
-  "overrides": {
-    "nth-check": ">=2.0.1",
-    "postcss": ">=8.4.31"
+    "gh-pages": "^6.1.1"
   }
 }

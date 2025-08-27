@@ -7,7 +7,7 @@ import Tooltip from 'react-bootstrap/Tooltip';
 import { MarkGithubIcon } from '@primer/octicons-react';
 
 import ThemeSwitcher from './ThemeSwitcher.js';
-import packageJson from '../../package.json';
+import packageJson from '../package.json';
 
 function Header() {
     return (

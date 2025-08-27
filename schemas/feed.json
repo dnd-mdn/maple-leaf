@@ -43,9 +43,9 @@
                     },
                     {
                         "type": "string",
-                        "format": "date",
                         "title": "Display date",
-                        "description": "Human-readable date."
+                        "description": "Human-readable date.",
+                        "pattern": "^(\\d{4}-\\d{2}-\\d{2})$"
                     },
                     {
                         "type": "integer",
